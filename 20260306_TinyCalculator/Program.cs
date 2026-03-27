@@ -1,23 +1,42 @@
-﻿
-Console.WriteLine("== Tiny Calculator Camir Olic und Moni Olic ==");
+﻿Console.WriteLine("== Tiny Calculator ==");
 
 Console.Write("Enter Operand1: ");
-Console.ForegroundColor = ConsoleColor.Red;
-double a = double.Parse(Console.ReadLine());
-Console.ForegroundColor = ConsoleColor.White;
-Console.Write("Enter Operand2: ");
-Console.ForegroundColor = ConsoleColor.Red;
-double b = double.Parse(Console.ReadLine());
-Console.ForegroundColor = ConsoleColor.White;
-Console.WriteLine($"{a} + {b} = {a + b}");
-Console.WriteLine($"{a} - {b} = {a - b}");
-Console.WriteLine($"{a} * {b} = {a * b}");
-Console.WriteLine($"{a} / {b} = {a / b}");
-if(b == 0)
+double result = double.Parse(Console.ReadLine());
+
+while (true)
 {
-    Console.WriteLine($"{a} / {b} = undefiniert/unendlich");
-}
-else
-{
-    Console.WriteLine($"{a} / {b} = {a / b}");
+    Console.Write("Enter Operator (+, -, *, /) or 'exit': ");
+    string op = Console.ReadLine();
+
+    if (op == "exit")
+        break;
+
+    Console.Write("Enter Operand2: ");
+    double b = double.Parse(Console.ReadLine());
+
+    switch (op)
+    {
+        case "+":
+            result = result + b;
+            break;
+        case "-":
+            result = result - b;
+            break;
+        case "*":
+            result = result * b;
+            break;
+        case "/":
+            if (b == 0)
+            {
+                Console.WriteLine("Division durch 0 nicht erlaubt!");
+                continue;
+            }
+            result = result / b;
+            break;
+        default:
+            Console.WriteLine("Ungültiger Operator!");
+            continue;
+    }
+
+    Console.WriteLine("Ergebnis: " + result);
 }
