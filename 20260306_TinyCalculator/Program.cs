@@ -1,5 +1,5 @@
 ﻿
-Console.WriteLine("== Tiny Calculator ==");
+Console.WriteLine("== Tiny Calculator Camir Olic und Moni Olic ==");
 
 Console.Write("Enter Operand1: ");
 Console.ForegroundColor = ConsoleColor.Red;
